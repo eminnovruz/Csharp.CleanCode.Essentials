@@ -64,8 +64,7 @@ int numberOne = 5;
 int numberTwo = 10;
 int result = Sum(numberOne, numberTwo); // Counting 2 number for specific purpose. 
 ```
-### Write <summary> for methods.
-
+### Write 'Summary' for methods.
 ```csharp
 /// <summary> 
 /// The function for adding new student. 

@@ -1,9 +1,9 @@
-
+<a href="top"></a> 
 # C# , Clean Code Essentials
 
 A brief information of writing clean code instead.
 
-
+    
 
 
 ## Authors
@@ -161,3 +161,208 @@ public void SaveNumber(FileStream stream, int number)
     // Some Codes again..
 }
 ```
+## Version Control 🛂
+
+```bash
+# Commit your changes with meaningful messages
+git commit -m "Add CalculateSquare function"
+git commit -m "Fix issue #123: Invalid input handling"
+
+```
+
+## Follow Solid Principles ⚡.
+### There are 5 principles of Solid.
+
+## Single Responsibility Principle.
+### A class should have only one reason to change, meaning it should have only one responsibility.
+
+```csharp 
+// Bad example (violating SRP)
+public class Student {
+    public void CalculateGPA() { /* ... */ }
+    public void SaveToDatabase() { /* ... */ }
+}
+
+// Good example (adhering to SRP)
+public class Student {
+    public double CalculateGPA() { /* ... */ }
+}
+
+public class StudentRepository {
+    public void SaveToDatabase(Student student) { /* ... */ }
+}
+
+```
+
+## Open/Closed Principle.
+### Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
+
+```csharp
+// Bad example (violating OCP)
+public class Rectangle {
+    public double Width { get; set; }
+    public double Height { get; set; }
+}
+
+// Extending for a new shape
+public class Circle : Rectangle {
+    public double Radius { get; set; }
+}
+
+// Good example (adhering to OCP)
+public interface IShape {
+    double Area();
+}
+
+public class Rectangle : IShape {
+    public double Width { get; set; }
+    public double Height { get; set; }
+    
+    public double Area() {
+        return Width * Height;
+    }
+}
+
+public class Circle : IShape {
+    public double Radius { get; set; }
+    
+    public double Area() {
+        return Math.PI * Math.Pow(Radius, 2);
+    }
+}
+
+```
+## Liskov Substitution Principle (LSP):
+### Subtypes must be substitutable for their base types without altering the correctness of the program.
+
+```csharp
+// Bad example (violating LSP)
+public class Bird {
+    public virtual void Fly() { /* ... */ }
+}
+
+public class Ostrich : Bird {
+    public override void Fly() {
+        throw new NotSupportedException("Ostriches can't fly.");
+    }
+}
+
+// Good example (adhering to LSP)
+public interface IFlyable {
+    void Fly();
+}
+
+public class Sparrow : IFlyable {
+    public void Fly() { /* ... */ }
+}
+
+public class Ostrich : IFlyable {
+    public void Fly() {
+        throw new NotSupportedException("Ostriches can't fly.");
+    }
+}
+```
+
+## Interface Segregation Principle (ISP):
+### Clients should not be forced to depend on interfaces they do not use.
+
+```csharp
+// Bad example (violating ISP)
+public interface IWorker {
+    void Work();
+    void Eat();
+}
+
+public class Manager : IWorker {
+    public void Work() { /* ... */ }
+    public void Eat() { /* ... */ }
+}
+
+// Good example (adhering to ISP)
+public interface IWorker {
+    void Work();
+}
+
+public interface IEater {
+    void Eat();
+}
+
+public class Manager : IWorker, IEater {
+    public void Work() { /* ... */ }
+    public void Eat() { /* ... */ }
+}
+
+```
+
+## Dependency Inversion Principle (DIP):
+### High-level modules should not depend on low-level modules. 
+```csharp
+// Bad example (violating DIP)
+public class LightBulb {
+    public void TurnOn() { /* ... */ }
+    public void TurnOff() { /* ... */ }
+}
+
+public class Switch {
+    private LightBulb bulb = new LightBulb();
+
+    public void Toggle() {
+        // Direct dependency on LightBulb
+        if (bulb.IsOn()) {
+            bulb.TurnOff();
+        } else {
+            bulb.TurnOn();
+        }
+    }
+}
+
+// Good example (adhering to DIP)
+public interface ISwitchable {
+    void TurnOn();
+    void TurnOff();
+}
+
+public class LightBulb : ISwitchable {
+    public void TurnOn() { /* ... */ }
+    public void TurnOff() { /* ... */ }
+}
+
+public class Switch {
+    private ISwitchable device;
+
+    public Switch(ISwitchable device) {
+        this.device = device;
+    }
+
+    public void Toggle() {
+        if (device.IsOn()) {
+            device.TurnOff();
+        } else {
+            device.TurnOn();
+        }
+    }
+}
+
+```
+
+# Keep in Mind ⚠️
+    This is not that all about writing clean code. You can get more information and tips from anywhere else.
+
+
+
+
+
+![Logo](https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2020/09/CleanCode.jpg?w=800&ssl=1)    
+
+    I have got asists of both OpenAi and Forums for writing this article⚡.
+
+
+[Back To Top](#top)
+
+
+
+
+
+
+
+

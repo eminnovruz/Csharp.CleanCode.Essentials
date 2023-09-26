@@ -40,3 +40,4 @@ Spaghetti code, also known as spaghetti programming, is a term used to describe 
 
 - Modern Practices: Modern programming languages and best practices discourage the use of "goto" statements and emphasize structured programming, modularity, and clean code principles to avoid spaghetti code.
 
+## Some Tips about changing sphagetti code into clean code.

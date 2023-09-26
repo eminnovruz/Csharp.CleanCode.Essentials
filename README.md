@@ -40,4 +40,48 @@ Spaghetti code, also known as spaghetti programming, is a term used to describe 
 
 - Modern Practices: Modern programming languages and best practices discourage the use of "goto" statements and emphasize structured programming, modularity, and clean code principles to avoid spaghetti code.
 
-## Some Tips about changing sphagetti code into clean code.
+## Some tips for changing sphagetti code into clean code.
+## Meaningful Names 👍.
+### Use descriptive and meaningful names for variables, functions, classes, and modules.
+
+```csharp
+// Wrong Example
+int a = 5; // What is "a" ?
+
+// Correct Example
+int numberOfBooks = 10; // So easy to understand what does it represents.
+```
+
+## Adding Some Comments 💬
+### Add comments if it is necessary or should be explained.
+
+```csharp
+// Bad example
+int a = Sum(5, 10); // Sum of 2 integer
+
+// Correct example
+int numberOne = 5;
+int numberTwo = 10;
+int result = Sum(numberOne, numberTwo); // Counting 2 number for specific purpose. 
+```
+### Write <summary> for methods.
+
+```csharp
+/// <summary> 
+/// The function for adding new student. 
+/// </summary>
+/// <param name="newStudent">Student, will be added to list of students.</param>
+public void AddStudent(Student newStudent)
+{
+    if (newStudent != null)
+    {
+        Students.Add(newStudent);
+    }
+    else
+    {
+        throw new ArgumentNullException(nameof(newStudent));
+    }
+}
+```
+
+    

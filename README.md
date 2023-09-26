@@ -64,7 +64,8 @@ int numberOne = 5;
 int numberTwo = 10;
 int result = Sum(numberOne, numberTwo); // Counting 2 number for specific purpose. 
 ```
-### Write 'Summary' for methods.
+### Write <summary> for methods.
+
 ```csharp
 /// <summary> 
 /// The function for adding new student. 
@@ -83,4 +84,80 @@ public void AddStudent(Student newStudent)
 }
 ```
 
-    
+## Formatting 📖
+### Follow readable style of code.
+
+```csharp
+
+if (newStudent != null)
+{
+Students.Add(newStudent);  // Bad Example
+}
+else
+{
+    throw new ArgumentNullException(nameof(newStudent)); // Correct One
+}
+
+```
+
+## Exception Handling ⚒️
+### Handle Exceptions.
+
+```csharp
+List<Student> Students = null;
+
+Students.Add(new Student("Kamil", 15, 9)); // Example will be finished with exception
+
+// Correct example
+try
+{
+    Student newStudent = new Student("Kamil", 15, 9);
+    Students.Add(newStudent);
+}
+catch (Exception exception)
+{
+    Console.WriteLine(exception.Message);
+}
+```
+
+## Dont repeat yourself (DRY) 🔁
+### Try not to write same codes again and again.
+
+```csharp
+// Bad example
+int result1 = CalculateSquare(5);
+int result2 = CalculateSquare(10);
+
+// Good example
+int result1 = CalculateSquare(5);
+int result2 = CalculateSquare(10);
+
+int CalculateSquare(int x) {
+    return x * x;
+}
+```
+## Functions 🧩
+- Try not to write complex functions.
+- Keep functions focused on one thing.
+
+```csharp 
+// Code , full of errors and mistakes.
+public void CountAndSave(int a, int b, FileStream s)
+{
+    int z = a + b;
+    byte t = Byte.Parse(z.ToString());
+    s.Write(t);
+    Console.WriteLine("Saved!");
+}
+
+// Functions which are focused for one job.
+public int Count(int numberOne, int numberTwo)
+{
+    // Some Codes here...
+}
+
+public void SaveNumber(FileStream stream, int number)
+{
+    // Some Codes again..
+}
+```
